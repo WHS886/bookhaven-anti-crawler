@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 Forbidden — BookHaven Security</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            background: #1a1a2e;
+            border: 1px solid #e74c3c33;
+            border-radius: 16px;
+            padding: 3.5rem 3rem;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(231, 76, 60, 0.15), 0 8px 32px rgba(0,0,0,0.5);
+            max-width: 540px;
+            width: 90%;
+        }
+        .shield {
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        h1 {
+            color: #e74c3c;
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+        }
+        h2 {
+            color: #f39c12;
+            font-size: 1.2rem;
+            margin-top: 0.3rem;
+            font-weight: 400;
+        }
+        .info-box {
+            background: #0f3460;
+            border-radius: 10px;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        .info-box .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.35rem 0;
+            color: #bdc3c7;
+        }
+        .info-box .row span:first-child {
+            color: #7f8c8d;
+        }
+        .info-box code {
+            color: #e74c3c;
+            font-family: "Consolas", "Courier New", monospace;
+            font-size: 0.85em;
+        }
+        .reason {
+            background: #e74c3c22;
+            border-left: 3px solid #e74c3c;
+            padding: 0.8rem 1rem;
+            margin: 1.2rem 0;
+            font-size: 0.88rem;
+            color: #f39c12;
+            text-align: left;
+            border-radius: 0 8px 8px 0;
+        }
+        .footer-text {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #566573;
+        }
+        .footer-text a {
+            color: #3498db;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="shield">&#9888;</div>
+        <h1>403</h1>
+        <h2>Access Blocked by Security System</h2>
+
+        <div class="reason">
+            Our system detected behavior patterns matching automated bot activity and has blocked this request.
+        </div>
+
+        <div class="info-box">
+            <div class="row">
+                <span>IP Address</span>
+                <span><code>{{ ip }}</code></span>
+            </div>
+            <div class="row">
+                <span>Session ID</span>
+                <span><code>{{ session_id[:12] if session_id else 'N/A' }}...</code></span>
+            </div>
+            <div class="row">
+                <span>Reason</span>
+                <span><code>{{ reason }}</code></span>
+            </div>
+        </div>
+
+        <p class="footer-text">
+            If you are a human user, please wait a moment and try again, or contact the administrator<br>
+            <a href="mailto:security@bookhaven-demo.com">security@bookhaven-demo.com</a>
+        </p>
+    </div>
+</body>
+</html>

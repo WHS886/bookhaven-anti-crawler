@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}All Books — BookHaven{% endblock %}
+{% block content %}
+
+<div class="page-header">
+    <h1>All Books</h1>
+    <p>{{ books|length }} titles available — click a cover to see details</p>
+</div>
+
+<!-- Category Filters -->
+<div class="category-tags">
+    <a href="{{ url_for('public.books') }}" class="tag {% if not current_category %}active{% endif %}">All</a>
+    {% for cat in categories %}
+    <a href="{{ url_for('public.books', category=cat) }}" class="tag {% if current_category == cat %}active{% endif %}">{{ cat }}</a>
+    {% endfor %}
+</div>
+
+<!-- Book Grid -->
+<div class="book-grid">
+    {% for book in books %}
+    <div class="book-card">
+        <div class="cover" style="background: linear-gradient(135deg, {{ book.color1 }}, {{ book.color2 }});">
+            &#128214;
+        </div>
+        <div class="info">
+            <h3>{{ book.title }}</h3>
+            <p class="author">{{ book.author }}</p>
+            <p class="price">${{ book.price }}</p>
+            <a href="{{ url_for('public.book_detail', book_id=book.id) }}" class="btn-sm">View Details</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

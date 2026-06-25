@@ -1,0 +1,495 @@
+/* ============================================================
+   BookHaven — Global Styles
+   ============================================================ */
+
+:root {
+    --primary: #2c3e50;
+    --accent: #3498db;
+    --accent-hover: #2980b9;
+    --success: #27ae60;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+    --bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --text: #2c3e50;
+    --text-light: #7f8c8d;
+    --border: #dee2e6;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --radius: 8px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---- Navbar ---- */
+.navbar {
+    background: var(--primary);
+    color: #fff;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.navbar .logo a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+}
+
+.navbar .nav-links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.navbar .nav-links a:hover { color: var(--accent); }
+
+.navbar .cart-link {
+    background: var(--accent);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.navbar .cart-link:hover { background: var(--accent-hover); color: #fff !important; }
+
+/* ---- Main Content ---- */
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    flex: 1;
+}
+
+/* ---- Page Title ---- */
+.page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+}
+
+/* ---- Home Hero ---- */
+.hero {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: var(--radius);
+    margin-bottom: 2.5rem;
+}
+
+.hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+.hero .btn-primary {
+    display: inline-block;
+    background: #fff;
+    color: var(--primary);
+    padding: 12px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hero .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* ---- Featured Section ---- */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+}
+
+.feature-card:hover { transform: translateY(-3px); }
+
+.feature-card .icon {
+    font-size: 2.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.feature-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* ---- Book Grid ---- */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.8rem;
+}
+
+.book-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+}
+
+.book-card .cover {
+    height: 180px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.book-card .info {
+    padding: 1.2rem 1rem;
+}
+
+.book-card .info h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+}
+
+.book-card .info .author {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.book-card .info .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--danger);
+    margin-bottom: 0.6rem;
+}
+
+.book-card .info .btn-sm {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.book-card .info .btn-sm:hover { background: var(--accent-hover); }
+
+/* ---- Book Detail ---- */
+.book-detail {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2.5rem;
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.book-detail .cover-large {
+    width: 100%;
+    height: 380px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: #fff;
+}
+
+.book-detail .meta h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.book-detail .meta .author {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.book-detail .meta .price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--danger);
+    margin-bottom: 1rem;
+}
+
+.book-detail .meta .desc {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.book-detail .meta .btn-cart {
+    display: inline-block;
+    background: var(--success);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.book-detail .meta .btn-cart:hover { background: #219a52; }
+
+/* ---- Breadcrumb ---- */
+.breadcrumb {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.breadcrumb a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.breadcrumb span { margin: 0 4px; }
+
+/* ---- Category Tags ---- */
+.category-tags {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.category-tags .tag {
+    padding: 6px 18px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 0.88rem;
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.category-tags .tag:hover, .category-tags .tag.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+/* ---- Shopping Cart ---- */
+.cart-table {
+    width: 100%;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.cart-table th {
+    background: var(--primary);
+    color: #fff;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.cart-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-table tr:last-child td { border-bottom: none; }
+
+.cart-table .qty {
+    width: 50px;
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.cart-summary {
+    margin-top: 2rem;
+    text-align: right;
+    background: var(--card-bg);
+    padding: 1.5rem 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.cart-summary .total {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--danger);
+    margin-bottom: 1rem;
+}
+
+.cart-summary .btn-checkout {
+    display: inline-block;
+    background: var(--success);
+    color: #fff;
+    padding: 12px 40px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.cart-summary .btn-checkout:hover { background: #219a52; }
+
+/* ---- About Page ---- */
+.about-section {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.about-section h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.about-section p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.team-member {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--bg);
+    border-radius: var(--radius);
+}
+
+.team-member .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.8rem;
+}
+
+.team-member h4 { font-size: 1rem; margin-bottom: 0.2rem; }
+
+.team-member span {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* ---- Footer ---- */
+.footer {
+    background: var(--primary);
+    color: #bdc3c7;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+/* ---- Alerts ---- */
+.alert {
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.alert-success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.alert-info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+.alert-warning { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; height: auto; padding: 1rem; gap: 0.8rem; }
+    .navbar .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .book-detail { grid-template-columns: 1fr; }
+    .book-detail .cover-large { height: 250px; }
+    .hero { padding: 2.5rem 1rem; }
+    .hero h1 { font-size: 1.6rem; }
+}

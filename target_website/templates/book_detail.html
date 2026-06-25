@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}{{ book.title }} — BookHaven{% endblock %}
+{% block content %}
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb">
+    <a href="{{ url_for('public.index') }}">Home</a>
+    <span>/</span>
+    <a href="{{ url_for('public.books') }}">Books</a>
+    <span>/</span>
+    <strong>{{ book.title }}</strong>
+</nav>
+
+<!-- Book Detail -->
+<div class="book-detail">
+    <div class="cover-large" style="background: linear-gradient(135deg, {{ book.color1 }}, {{ book.color2 }});">
+        &#128214;
+    </div>
+    <div class="meta">
+        <h1>{{ book.title }}</h1>
+        <p class="author">Author: {{ book.author }} &nbsp;|&nbsp; Publisher: {{ book.publisher }} &nbsp;|&nbsp; ISBN: {{ book.isbn }}</p>
+        <p class="price">${{ book.price }}</p>
+
+        <p class="desc">{{ book.description }}</p>
+
+        <div style="margin-bottom: 1rem;">
+            <span style="font-weight: 600;">Category:</span>
+            <span style="background: #eee; padding: 3px 12px; border-radius: 12px; font-size: 0.85rem;">{{ book.category }}</span>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+            <span style="font-weight: 600;">Availability:</span>
+            {% if book.stock > 0 %}
+            <span style="color: var(--success);">In Stock ({{ book.stock }} copies left)</span>
+            {% else %}
+            <span style="color: var(--danger);">Out of Stock</span>
+            {% endif %}
+        </div>
+
+        <a href="{{ url_for('public.cart') }}?add={{ book.id }}" class="btn-cart">Add to Cart</a>
+    </div>
+</div>
+
+{% endblock %}

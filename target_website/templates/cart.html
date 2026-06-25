@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Shopping Cart — BookHaven{% endblock %}
+{% block content %}
+
+<div class="page-header">
+    <h1>My Cart</h1>
+    <p>{{ cart_items|length if cart_items else 0 }} item(s)</p>
+</div>
+
+{% set added_id = request.args.get('add')|int %}
+
+{% if added_message %}
+<div class="alert alert-success">
+    &#10003; {{ added_message }}
+</div>
+{% endif %}
+
+{% if cart_items %}
+<table class="cart-table">
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Author</th>
+            <th>Unit Price</th>
+            <th>Qty</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% set total_price = namespace(value=0) %}
+        {% for item in cart_items %}
+        {% set subtotal = item.price * item.quantity %}
+        {% set total_price.value = total_price.value + subtotal %}
+        <tr>
+            <td>
+                <strong>{{ item.title }}</strong>
+            </td>
+            <td>{{ item.author }}</td>
+            <td>${{ item.price }}</td>
+            <td>{{ item.quantity }}</td>
+            <td style="font-weight: 600; color: var(--danger);">${{ subtotal }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="cart-summary">
+    <p class="total">Total: ${{ total_price.value }}</p>
+    <p style="margin-bottom: 1rem; color: var(--text-light);">
+        {% if total_price.value >= 99 %}
+            You qualify for free shipping (orders over $99)!
+        {% else %}
+            Add ${{ 99 - total_price.value }} more to qualify for free shipping.
+        {% endif %}
+    </p>
+    <a href="{{ url_for('public.cart', checkout=1) }}" class="btn-checkout">Checkout</a>
+</div>
+{% else %}
+<div style="text-align: center; padding: 4rem 2rem; background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow);">
+    <p style="font-size: 3rem; margin-bottom: 1rem;">&#128722;</p>
+    <p style="font-size: 1.2rem; color: var(--text-light);">Your cart is empty. Time to go book shopping!</p>
+    <a href="{{ url_for('public.books') }}" style="display: inline-block; margin-top: 1.5rem; color: var(--accent); font-weight: 600;">Browse Books</a>
+</div>
+{% endif %}
+
+{% endblock %}

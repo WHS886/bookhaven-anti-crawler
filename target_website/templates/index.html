@@ -1,0 +1,55 @@
+
+{% extends "base.html" %}
+{% block title %}BookHaven — Home{% endblock %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>Discover Your Next Favorite Book</h1>
+    <p>BookHaven curates over 12,000 titles across literature, technology, history, art, and more. Open a book, open a world.</p>
+    <a href="{{ url_for('public.books') }}" class="btn-primary">Browse All Books</a>
+</section>
+
+<!-- Feature Highlights -->
+<section class="features">
+    <div class="feature-card">
+        <div class="icon">&#128666;</div>
+        <h3>Free Shipping Over $99</h3>
+        <p>Free standard delivery on all orders of $99 or more, nationwide.</p>
+    </div>
+    <div class="feature-card">
+        <div class="icon">&#11118;</div>
+        <h3>30-Day Easy Returns</h3>
+        <p>Not satisfied? Return any book within 30 days for a full refund.</p>
+    </div>
+    <div class="feature-card">
+        <div class="icon">&#9733;</div>
+        <h3>Member Discounts</h3>
+        <p>Sign up as a member and enjoy 20% off new releases and 30% off classics.</p>
+    </div>
+    <div class="feature-card">
+        <div class="icon">&#9742;</div>
+        <h3>24/7 Customer Support</h3>
+        <p>Our support team is here around the clock for any questions you have.</p>
+    </div>
+</section>
+
+<!-- Editor's Picks -->
+<h2 style="margin-bottom: 1.2rem;">Editor's Picks</h2>
+<div class="book-grid">
+    {% for book in featured_books %}
+    <div class="book-card">
+        <div class="cover" style="background: linear-gradient(135deg, {{ book.color1 }}, {{ book.color2 }});">
+            &#128214;
+        </div>
+        <div class="info">
+            <h3>{{ book.title }}</h3>
+            <p class="author">{{ book.author }}</p>
+            <p class="price">${{ book.price }}</p>
+            <a href="{{ url_for('public.book_detail', book_id=book.id) }}" class="btn-sm">View Details</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

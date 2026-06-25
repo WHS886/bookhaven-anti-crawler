@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BookHaven Bookstore{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{{ url_for('public.index') }}">BookHaven</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('public.index') }}">Home</a></li>
+            <li><a href="{{ url_for('public.books') }}">Browse</a></li>
+            <li><a href="{{ url_for('public.about') }}">About</a></li>
+            <li><a href="{{ url_for('public.cart') }}" class="cart-link">Cart</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 BookHaven Online Bookstore. This site is built for academic research and educational demonstration purposes only.</p>
+    </footer>
+</body>
+</html>

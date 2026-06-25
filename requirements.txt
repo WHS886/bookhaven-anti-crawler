@@ -1,0 +1,29 @@
+# ============================================================
+# BookHaven AI Anti-Crawler System — Dependencies
+# ============================================================
+
+# ---- Web Framework ----
+Flask>=3.0,<4.0
+gunicorn>=22.0
+
+# ---- Monitoring Dashboard ----
+streamlit>=1.38
+watchdog>=4.0
+
+# ---- Data & Scientific Computing ----
+pandas>=2.2
+numpy>=1.26,<2.0
+
+# ---- Visualization ----
+plotly>=5.23
+
+# ---- Machine Learning ----
+scikit-learn>=1.5,<1.7
+joblib>=1.4
+
+# ---- Deep Learning (LSTM) ----
+torch>=2.4
+
+# ---- Utilities ----
+python-dotenv>=1.0
+requests>=2.32
